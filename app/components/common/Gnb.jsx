@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import styles from "./common.module.css";
 import Link from "next/link";
 
-const navigationList = ["/menu1"];
-
+const navigationList = ["/menu1", "/uploadvideo"];
+  
 const Gnb = () => {
   const pathname = usePathname();
   return (
@@ -19,6 +19,7 @@ const Gnb = () => {
       {navigationList.map((path) => (
         <Link
           href={path}
+          key={path}
           className={`${styles.path} ${pathname === path && styles.active}`}
         >
           {path.replace("/", "").toUpperCase()}
