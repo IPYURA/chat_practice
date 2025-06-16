@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import styles from "./common.module.css";
 import Link from "next/link";
 
-const navigationList = ["/menu1", "/uploadvideo"];
-  
+const navigationList = ["/menu1", "/uploadvideo", "/playvideo"];
+
 const Gnb = () => {
   const pathname = usePathname();
   return (
