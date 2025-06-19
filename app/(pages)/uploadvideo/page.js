@@ -7,10 +7,9 @@ import styles from "./uploadvideo.module.css";
 import { v4 as uuidv4 } from "uuid";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const UPLOAD_URL = SUPABASE_URL + "/storage/v1/upload/resumable";
+// const UPLOAD_URL = SUPABASE_URL + "/storage/v1/upload/resumable";
 
-// const FASTAPI_URL =
-//   process.env.NEXT_PUBLIC_FASTAPI_URL || "http://localhost:8000";
+const FASTAPI_URL = "http://127.0.0.1:8000";
 
 const UploadVideo = () => {
   const [progress, setProgress] = useState(0);
@@ -97,7 +96,11 @@ const UploadVideo = () => {
     //   alert("영상과 자막 파일을 모두 선택해주세요");
     //   return;
     // }
-    if (!videoFile) {
+    // if (!videoFile) {
+    //   alert("영상 파일을 첨부해주세요");
+    //   return;
+    // }
+    if (!subtitleFile) {
       alert("영상 파일을 첨부해주세요");
       return;
     }
@@ -111,12 +114,12 @@ const UploadVideo = () => {
 
       // 2. 영상 업로드 (Supabase Storage + videos 테이블)
       setProgress(20);
-      await handleUploadVideo(videoId);
+      await handleUploadSubtitle(videoId); //백엔드 구축 후 실행
       setProgress(60);
 
       // 3. 자막 처리 (FastAPI로 전송)
       setProgress(80);
-      //   await handleUploadSubtitle(videoId); //백엔드 구축 후 실행
+        await handleUploadVideo(videoId); // 비디오 업로드
       setProgress(100);
 
       alert("업로드 및 처리 완료!");
@@ -188,10 +191,9 @@ const UploadVideo = () => {
       <button
         onClick={handleUpload}
         className={styles.button}
-        disabled={!videoFile || isUploading}
         style={{
           opacity: videoFile && subtitleFile && !isUploading ? 1 : 0.5,
-          cursor: videoFile && !isUploading ? "pointer" : "not-allowed",
+          cursor: "pointer",
         }}
       >
         {isUploading ? "업로드 중..." : "업로드"}
