@@ -5,6 +5,8 @@ import styles from "./playvideo.module.css";
 import { supabase } from "@/app/lib/supabaseClient";
 import VideoList from "./VideoList";
 
+const FASTAPI_URL = "http://34.47.116.47:9000";
+
 const PlayVideo = () => {
   const [videoUrl, setVideoUrl] = useState(null);
   const [clickedVideoID, setClickedVideoID] = useState(null);
@@ -97,7 +99,7 @@ const PlayVideo = () => {
       setMessages((prev) => [...prev, loadingMessage]);
 
       // 백엔드 API 호출
-      const response = await fetch("http://127.0.0.1:8000/chat", {
+      const response = await fetch(`${FASTAPI_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
