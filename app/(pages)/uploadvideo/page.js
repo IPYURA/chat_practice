@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import * as tus from "tus-js-client";
 import { supabase } from "@/app/lib/supabaseClient";
 import styles from "./uploadvideo.module.css";
 import { v4 as uuidv4 } from "uuid";
