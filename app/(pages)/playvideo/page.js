@@ -5,7 +5,8 @@ import styles from "./playvideo.module.css";
 import { supabase } from "@/app/lib/supabaseClient";
 import VideoList from "./VideoList";
 
-const FASTAPI_URL = "http://34.47.116.47:9000";
+// const FASTAPI_URL = "http://34.47.116.47:9000";
+const FASTAPI_URL = "https://cdg.r-e.kr";
 
 const PlayVideo = () => {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -29,8 +30,18 @@ const PlayVideo = () => {
         .select("*")
         .order("created_at", { ascending: false });
 
+      // 한국시간으로 변환
+      const kstData = (data || []).map((video) => ({
+        ...video,
+        created_at_kst: new Date(video.created_at).toLocaleString("ko-KR", {
+          timeZone: "Asia/Seoul",
+        }),
+      }));
+
+      console.log("videos: ", data);
       if (getListError) throw getListError;
-      setVideoList(data || []);
+    //   setVideoList(data || []);
+      setVideoList(kstData);
     } catch (err) {
       setError(err.message || "비디오 목록을 불러오지 못했습니다.");
     } finally {

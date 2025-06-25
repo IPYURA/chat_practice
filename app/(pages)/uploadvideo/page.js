@@ -9,7 +9,8 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 // const UPLOAD_URL = SUPABASE_URL + "/storage/v1/upload/resumable";
 
 // const FASTAPI_URL = "http://127.0.0.1:8000";
-const FASTAPI_URL = "http://34.47.116.47:9000";
+// const FASTAPI_URL = "http://34.47.116.47:9000";
+const FASTAPI_URL = "https://cdg.r-e.kr";
 
 const UploadVideo = () => {
   const [progress, setProgress] = useState(0);
