@@ -1,0 +1,136 @@
+.container {
+  padding: 24px;
+}
+.graphWrap {
+  width: 100%;
+  height: 500px;
+  margin: 24px 0;
+}
+.chartSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+.inputWrap {
+  display: flex;
+  gap: 8px;
+}
+.buttonWrap {
+  display: flex;
+  gap: 8px;
+}
+.applyBtn {
+  display: inline-block;
+  padding: 0.7em 2.2em;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #9d9dc0 0%, #999a9b 100%);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.13),
+    0 1.5px 3px rgba(96, 165, 250, 0.07);
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+  outline: none;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+}
+.applyBtn:hover {
+  background: linear-gradient(90deg, #9d9dc0 100%, #999a9b 0%);
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18),
+    0 2px 6px rgba(96, 165, 250, 0.1);
+  transform: translateY(-2px) scale(1.03);
+}
+.selectBtn {
+  display: inline-block;
+  padding: 0.7em 2.2em;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.13),
+    0 1.5px 3px rgba(96, 165, 250, 0.07);
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+  outline: none;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+}
+
+.selectBtn:hover {
+  background: linear-gradient(90deg, #60a5fa 0%, #6366f1 100%);
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18),
+    0 2px 6px rgba(96, 165, 250, 0.1);
+  transform: translateY(-2px) scale(1.03);
+}
+.selectBtn:disabled,
+.selectBtn[disabled] {
+  background: linear-gradient(90deg, #d1d5db 0%, #e5e7eb 100%);
+  color: #b0b3c6;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  filter: grayscale(0.15) brightness(0.97);
+  /* 호버 효과 무효화 */
+  transition: none;
+}
+
+/* 
+.selectBtn:active {
+  background: linear-gradient(90deg, #6366f1 0%, #60a5fa 100%);
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.1);
+  transform: scale(0.98);
+} */
+.stylishDateInput {
+  height: 44px;
+  padding: 0.7em 1.2em;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #868484;
+  background: linear-gradient(
+    -5deg,
+    rgba(154, 154, 154, 0.2) 0%,
+    rgba(255, 255, 255, 0.22) 100%
+  );
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+  outline: none;
+  transition: box-shadow 0.18s, border 0.18s;
+  cursor: pointer;
+  min-width: 180px;
+  max-width: 100%;
+}
+.stylishDateInput::-webkit-calendar-picker-indicator {
+  filter: invert(45%) sepia(80%) saturate(400%) hue-rotate(190deg);
+  cursor: pointer;
+  transition: filter 0.18s;
+}
+.stylishDateInput:hover::-webkit-calendar-picker-indicator {
+  filter: invert(60%) sepia(100%) saturate(600%) hue-rotate(200deg);
+}
+.stylishDateInput:disabled {
+  background: linear-gradient(
+    -5deg,
+    rgba(220, 220, 220, 0.4) 0%,
+    rgba(245, 245, 245, 0.45) 100%
+  );
+  color: #b0b3c6;
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+  filter: grayscale(0.1) brightness(0.98);
+}
+
+/* 비활성화 시 캘린더 아이콘도 흐리게 */
+.stylishDateInput:disabled::-webkit-calendar-picker-indicator {
+  filter: grayscale(0.6) brightness(1.2);
+  cursor: not-allowed;
+}
